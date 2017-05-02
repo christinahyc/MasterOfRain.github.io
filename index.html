@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Can Precipitation Influence Traffic Accidents in NYC?</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 52px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 57px;
+  margin-top: -57px;
+}
+
+.section h2 {
+  padding-top: 57px;
+  margin-top: -57px;
+}
+.section h3 {
+  padding-top: 57px;
+  margin-top: -57px;
+}
+.section h4 {
+  padding-top: 57px;
+  margin-top: -57px;
+}
+.section h5 {
+  padding-top: 57px;
+  margin-top: -57px;
+}
+.section h6 {
+  padding-top: 57px;
+  margin-top: -57px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Master of Rain</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="text.html">Text Analysis</a>
+</li>
+<li>
+  <a href="Precipitation.html">Static Graphs</a>
+</li>
+<li>
+  <a href="https://rainofmaster.shinyapps.io/Master_of_Rain/">Shiny App</a>
+</li>
+<li>
+  <a href="Summary.html">Summary</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Can Precipitation Influence Traffic Accidents in NYC?</h1>
+
+</div>
+
+
+<div id="overview-and-motivation" class="section level3">
+<h3>Overview and Motivation</h3>
+<p>Precipitation has been the cause of thousands of car accidents year in and year out, and it is especially dangerous in dry weather states.</p>
+<div class="figure">
+<img src="project/crush2.jpg" />
+
+</div>
+<p><br/></p>
+<div id="something-you-need-to-know" class="section level4">
+<h4>Something you need to know</h4>
+<p>In meteorology, precipitation is any product of the condensation of atmospheric water vapor that falls under gravity.The main forms of precipitation include drizzle, rain, sleet, snow, graupel and hail.</p>
+</div>
+<div id="the-intuition-is-that-heavy-precipitation-leads-to-more-accidents" class="section level4">
+<h4>The intuition is that heavy precipitation leads to more accidents</h4>
+<p>There are many factors which may explain the phenomenon.</p>
+</div>
+<div id="a-lot-of-drivers-dont-know-how-to-drive-in-the-bad-weather" class="section level4">
+<h4>A Lot of Drivers Don’t Know How to Drive in the Bad Weather</h4>
+<p>In bad weather conditions, there are two types of drivers who can significantly increase the risk to others: excessively timid drivers and reckless drivers. Excessively timid drivers tend to overestimate the danger of weather conditions and drive at unreasonably low speeds. When the weather limits the number of available traffic lanes, such as can happen following heavy rain, this type of driver can cause traffic to back up, increasing the risk of a rear end accident. Reckless drivers often ignore the consequences of bad weather and may even think it is a good thing that the weather has forced a lot of other drivers off of the road. Reckless drivers may well drive at full highway speed or greater, even when visibility is low or the roads are drenched. Even with four wheel drive (4WD), cars can still skid. When they lose control on a slippery road, their high speed makes it much more likely for a car accident to occur.</p>
+</div>
+<div id="rain-makes-the-road-slippery" class="section level4">
+<h4>Rain Makes the Road Slippery</h4>
+<p>Rain can make it more difficult to stay on a roadway, to stop, or to avoid colliding with other vehicles. This is especially true when it first starts raining because roads are their most slippery at the beginning of a rainstorm. When the road first gets wet, oil rises to the surface and creates a greasy surface. If you can’t stop your car in time, that’s when accidents happen.</p>
+</div>
+<div id="rain-decreases-visibility" class="section level4">
+<h4>Rain Decreases Visibility</h4>
+<p>During rain storms, it can be difficult for drivers to see to see other cars. When rain is combined with dirty water kicked up from the road by other drivers, windshields can quickly become dirty. That is why it is always important to make sure that your car has functional windshield wipers.</p>
+<p>After those analysis, we have sufficient reasons to believe there should be a strong relationship between precipitation and accidents.<br/><br/></p>
+</div>
+</div>
+<div id="related-work" class="section level3">
+<h3>Related Work</h3>
+<p>When searching for “precipitation and accidents” on the internet, we saw some inconsistent graphs as follows. From the first picture, we can observe that crashes per month is positively correlated with precipitation days per month. In the second picture, the trend of precipitation in Maine represented by the blue line is very similar with the trend of Motorcycle riders killed in transport accident represented by the orange line. The first two pictures tell us there exists a positive relationship between precipitation and accidents. However, in the third picture, the patterns of winter and non-winter weather related fatal collisions are differnt in differnt time periods. The dark gray represents percentage of winter-precipitation-related fatal motor vehicle accidents by hour while the light gray represents the non-winter situation. Sometimes the dark gray bar is higher than the light gray while somestimes the relationship is reversed. This picture tells us weather and accidents may not have a significant correlation.</p>
+<center>
+<img src="project/related1.jpg" />
+</center>
+<br/>
+<center>
+<img src="project/related2.png" />
+</center>
+<br/>
+<center>
+<img src="project/related3.png" />
+</center>
+<p><br/></p>
+<p>We became very confused about the relationship and conducted some literature review. In a paper “Weather, Traffic Accidents, and Climate Change” by Benjamin Leard and Kevin Roth(2015), the authors suggested that weather patterns for the end of the century would lead to 603 additional fatalities per year. However, Gráinne McGuire(2008) tried to answer “Does rainfall increase or decrease motor accidents?”, and the analysis in this paper suggested the answer was both. The effect was determined by the quantity of rain and when it actually fell. Although the conclusion was odd, we can obviously know that scholars can not agree on the relationship between precipitation and accidents.</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

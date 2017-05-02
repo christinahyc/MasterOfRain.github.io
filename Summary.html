@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Project Summary</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 52px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 57px;
+  margin-top: -57px;
+}
+
+.section h2 {
+  padding-top: 57px;
+  margin-top: -57px;
+}
+.section h3 {
+  padding-top: 57px;
+  margin-top: -57px;
+}
+.section h4 {
+  padding-top: 57px;
+  margin-top: -57px;
+}
+.section h5 {
+  padding-top: 57px;
+  margin-top: -57px;
+}
+.section h6 {
+  padding-top: 57px;
+  margin-top: -57px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Master of Rain</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="text.html">Text Analysis</a>
+</li>
+<li>
+  <a href="Precipitation.html">Static Graphs</a>
+</li>
+<li>
+  <a href="https://rainofmaster.shinyapps.io/Master_of_Rain/">Shiny App</a>
+</li>
+<li>
+  <a href="Summary.html">Summary</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Project Summary</h1>
+
+</div>
+
+
+<div id="go-back-to-the-question." class="section level3">
+<h3>Go back to the question.</h3>
+<p>Open your Google Chrome and type “rain and accidents” or “rain and snow”, you can see tons of news and discussions about accidents and rainfall. It is not surprising to see how people feel about the relation between the two factors. And we confirm the assertion after scrapping the news from website and doing text analysis. People did think they are related. However, another group people doubt the opinion. When observing a claim that rainfall causes the damage, insurance companies will mostly always assert that it is every driver’s responsibility for exercising extra caution while driving during the rain. They have to be cautious but they do not, so they are at fault but not the rain, those who are incautious are likely to have an accident and they own it to rainfall and snow. And also, some drivers said they are concentrated on driving when the weather is bad so they do not suffer more. So what is the truth? People will be more cautious in terrible weather, therefore from a general view but not some individual cases, more precipitation do not lead to more accidents. Or by contrast, precipitation have some effects on the driving and increase the accidents?</p>
+</div>
+<div id="lets-look-at-nyc" class="section level3">
+<h3>Let’s look at NYC!</h3>
+<p>Firstly, we summarized collision and precipitation data. And the result was disappointing. Data seemed disagreeing with us. From the static graphs we can see that when precipitation is heavy, the number of collisions did not get larger and if anything, we can see raining and snowy days affect the accidents, and they share same tendency sometimes. If precipitation did not strongly connect to accidents from the summarized data, could we look at this question from a spacial view and see if there were some visible features in some places? Maybe in some specific location, there was a connection between the two factors. We used 2016 data to make an interactive Shiny app for users to see the hourly change of precipitation and collisions in NYC. Blue clouds indicate precipitation and yellow dots mean the collision. One thing needed to be clarified is that the data includes precipitation on rivers and lakes, where no accidents could happen. we can see that when it rained heavily, for example, in 2016-7-05,2016-7-10, 2016-2-18, 2016-07-25, 2016-7-29. We could not see a significant rise in accidents. And what we could see from the map directly was that accidents mainly concentrated on Manhattan Island and Brooklyn. However, there were also other places where collisions happened frequently without severe precipitation. Yet our study does not find evidence that vehicle collisions have statistically different responses to precipitation in New York. Why? well…Even though NYC city does not have significant separation between vehicles and pedestrians, mobile velocity in city is not high, which decrease the possibility of severe accidents. We could get support from data that during 2016, there were around 20,000 accidents and only 7 people died. Besides, from the text analysis we know that media emphasized the deadly effect of weather on drivers over years, which may enhance their vigilance. And when raining a dog, drivers tend to be very careful, thus, the accidents do not increase much.</p>
+</div>
+<div id="whats-next" class="section level3">
+<h3>What’s next?</h3>
+<p>In rainy and snowny days, riders of motorcycles and bicycles have less protection compared with cars and they maybe affected by weather more heavily than drivers in an enclosed car.</p>
+<div class="figure">
+<img src="project/NewYork.jpg" />
+
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
